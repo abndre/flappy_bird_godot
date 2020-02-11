@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://level1.gd" type="Script" id=1]
+[ext_resource path="res://cenas/solo.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/sprites/background-day.png" type="Texture" id=3]
+[ext_resource path="res://player/player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://cenas/how_to_play.tscn" type="PackedScene" id=5]
+
+[node name="level1" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="solo" parent="." instance=ExtResource( 2 )]
+position = Vector2( -1.29236, 0 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 163.79, 288.3 )
+scale = Vector2( 1.24232, 1.17164 )
+z_index = -5
+texture = ExtResource( 3 )
+
+[node name="player" parent="." instance=ExtResource( 4 )]
+
+[node name="how_to_play" parent="." instance=ExtResource( 5 )]
+visible = false
+
+[node name="Button" type="Button" parent="."]
+margin_left = 162.708
+margin_top = 15.4153
+margin_right = 297.708
+margin_bottom = 102.415
+[connection signal="button_down" from="Button" to="." method="_on_Button_button_down"]
